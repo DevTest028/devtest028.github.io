@@ -2,26 +2,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>待产包清单 - 温馨准备迎接新生命</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>待产包，早准备！</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet"/>
     <style>
         :root {
-            --primary-rose: #f4c2c2;
-            --primary-peach: #ffd8cb;
-            --primary-cream: #fff5f3;
-            --accent-gold: #d4a574;
-            --accent-soft: #e8d5c4;
-            --text-dark: #4a4a4a;
-            --text-medium: #7a7a7a;
-            --text-light: #a8a8a8;
+            --primary: #e88a9e;
+            --primary-light: #f5d6db;
+            --primary-dark: #c9707f;
+            --secondary: #8ecae6;
+            --bg-cream: #fdf8f5;
+            --bg-rose: #faf2f4;
+            --bg-peach: #fef6f4;
+            --text-dark: #3d3d3d;
+            --text-muted: #7a7a7a;
+            --text-light: #b0b0b0;
             --white: #ffffff;
-            --shadow-soft: 0 8px 32px rgba(244, 194, 194, 0.15);
-            --shadow-hover: 0 12px 48px rgba(244, 194, 194, 0.25);
-            --radius: 24px;
-            --radius-sm: 16px;
-            --radius-xs: 12px;
+            --gold: #c4a87c;
+            --gold-light: #f5ebe0;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 12px 40px rgba(232, 138, 158, 0.15);
+            --border-radius: 24px;
+            --border-radius-sm: 16px;
         }
 
         * {
@@ -30,241 +36,200 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--primary-cream) 0%, #fef9f7 100%);
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-rose) 50%, var(--bg-peach) 100%);
+            min-height: 100vh;
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.9;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 100%;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px 60px;
+        }
+
+        /* Top Badge */
+        .top-badge {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0 30px;
+        }
+
+        .badge-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(232, 138, 158, 0.1);
+        }
+
+        .badge-icon {
+            font-size: 18px;
+        }
+
+        .badge-text {
+            font-size: 13px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--white) 0%, #fffaf8 100%);
-            padding: 32px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
+            padding: 20px 0 50px;
         }
 
-        .header::before {
-            content: '';
+        .title-card {
+            display: inline-block;
+            background: var(--white);
+            padding: 30px 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+        }
+
+        .title-card::before,
+        .title-card::after {
+            content: '🎀';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(244, 194, 194, 0.1) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-        }
-
-        .hospital-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            color: var(--text-medium);
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
-            border: 1px solid rgba(244, 194, 194, 0.2);
-        }
-
-        .hospital-badge::before {
-            content: '✨';
-            color: var(--accent-gold);
-        }
+        .title-card::before { left: -20px; }
+        .title-card::after { right: -20px; }
 
         .main-title {
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-            letter-spacing: 2px;
+            font-family: 'ZCOOL KuaiLe', 'Noto Sans SC', cursive;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 4px;
         }
 
         .subtitle {
-            font-size: 16px;
-            color: var(--text-medium);
-            font-weight: 400;
-            position: relative;
-            z-index: 1;
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 6px;
+            margin-top: 8px;
         }
 
+        /* Header Icons */
         .header-icons {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 24px;
-            position: relative;
-            z-index: 1;
+            margin-top: 45px;
         }
 
         .header-icon {
-            width: 56px;
-            height: 56px;
+            width: 64px;
+            height: 64px;
             background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-            animation: bounce 3s ease-in-out infinite;
-        }
-
-        .header-icon:nth-child(2) { animation-delay: 0.2s; }
-        .header-icon:nth-child(3) { animation-delay: 0.4s; }
-        .header-icon:nth-child(4) { animation-delay: 0.6s; }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            box-shadow: var(--shadow-medium);
         }
 
         /* Intro Section */
-        .intro {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .intro-card {
+        .intro-section {
             background: var(--white);
-            border-radius: var(--radius);
-            padding: 32px 24px;
+            border-radius: var(--border-radius);
+            padding: 40px 44px;
+            margin: 40px 0 50px;
             box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .intro-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-rose), var(--primary-peach));
+            border-top: 3px solid var(--primary-light);
+            border-bottom: 3px solid var(--primary-light);
         }
 
         .intro-icon {
             font-size: 48px;
-            margin-bottom: 16px;
-            display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .intro-text {
-            font-size: 15px;
-            color: var(--text-medium);
-            margin-bottom: 16px;
-            line-height: 1.8;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 2;
         }
 
-        .intro-text:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight {
+        .highlight-box {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-peach) 0%, var(--primary-rose) 100%);
-            color: var(--white);
-            padding: 4px 16px;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4e9 100%);
+            color: var(--primary-dark);
+            padding: 4px 20px;
             border-radius: 20px;
-            font-weight: 500;
+            font-weight: 600;
             margin: 0 4px;
         }
 
-        /* Category Cards */
-        .category {
-            margin-bottom: 32px;
+        /* Category Section */
+        .category-section {
+            margin: 45px 0;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
 
         .category-header {
-            background: var(--white);
-            padding: 24px;
-            border-radius: var(--radius) var(--radius) 0 0;
+            padding: 28px 36px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
+            gap: 20px;
         }
 
-        .category-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 24px;
-            right: 24px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-soft), transparent);
+        .category-card:nth-child(1) .category-header {
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4e9 100%);
         }
 
-        .category:nth-child(1) .category-header {
-            background: linear-gradient(135deg, #fff5f6 0%, #fff9f9 100%);
+        .category-card:nth-child(2) .category-header {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         }
 
-        .category:nth-child(2) .category-header {
-            background: linear-gradient(135deg, #f5f9ff 0%, #f9fbff 100%);
+        .category-card:nth-child(3) .category-header {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
         }
 
-        .category:nth-child(3) .category-header {
-            background: linear-gradient(135deg, #f5fff5 0%, #f9fff9 100%);
-        }
-
-        .category:nth-child(4) .category-header {
-            background: linear-gradient(135deg, #fffbf5 0%, #fffdf9 100%);
+        .category-card:nth-child(4) .category-header {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
         }
 
         .category-icon {
-            width: 56px;
-            height: 56px;
+            width: 70px;
+            height: 70px;
             background: var(--white);
-            border-radius: var(--radius-sm);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            flex-shrink: 0;
+            font-size: 34px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .category-info {
+            flex: 1;
         }
 
         .category-title {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 4px;
         }
@@ -275,583 +240,570 @@
         }
 
         .category-count span {
-            color: var(--accent-gold);
-            font-weight: 500;
+            color: var(--primary);
+            font-weight: 600;
         }
 
-        .items-list {
-            background: var(--white);
-            border-radius: 0 0 var(--radius) var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow-soft);
+        /* Items Grid */
+        .items-grid {
+            padding: 28px 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
         }
 
-        .item {
+        .item-card {
+            background: linear-gradient(145deg, #fefefe 0%, #faf5f7 100%);
+            border-radius: var(--border-radius-sm);
             padding: 20px;
-            border-radius: var(--radius-sm);
-            background: #fafafa;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .item:last-child {
-            margin-bottom: 0;
-        }
-
-        .item:hover {
-            background: var(--white);
-            border-color: var(--primary-peach);
-            box-shadow: 0 4px 16px rgba(244, 194, 194, 0.15);
-            transform: translateX(4px);
+            border-left: 3px solid var(--primary-light);
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 8px;
-            gap: 12px;
         }
 
         .item-name {
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 600;
             color: var(--text-dark);
-            flex: 1;
         }
 
         .item-quantity {
-            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-peach) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
             padding: 4px 12px;
-            border-radius: 14px;
-            font-size: 12px;
-            font-weight: 500;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(244, 194, 194, 0.3);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
         }
 
         .item-desc {
-            font-size: 14px;
-            color: var(--text-medium);
+            color: var(--text-muted);
+            font-size: 13px;
             line-height: 1.6;
         }
 
         /* Tips Section */
-        .tips {
-            padding: 40px 0;
-        }
-
-        .tips-card {
-            background: linear-gradient(135deg, #fff5f6 0%, #fff9f9 100%);
-            border-radius: var(--radius);
-            padding: 40px 24px;
+        .tips-section {
+            background: linear-gradient(145deg, #fff5f7 0%, #fef0f3 100%);
+            border-radius: var(--border-radius);
+            padding: 48px 40px;
+            margin: 55px 0;
             text-align: center;
             box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tips-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
 
         .tips-title {
             font-size: 22px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
         }
 
         .tips-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            position: relative;
-            z-index: 1;
+            gap: 14px;
+            max-width: 560px;
+            margin: 0 auto;
         }
 
         .tip-item {
             background: var(--white);
-            padding: 20px;
-            border-radius: var(--radius-sm);
+            padding: 20px 28px;
+            border-radius: var(--border-radius-sm);
+            font-size: 15px;
+            color: var(--text-dark);
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 15px;
-            color: var(--text-dark);
-            font-weight: 500;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .tip-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-soft);
         }
 
         .tip-icon {
-            font-size: 24px;
-            flex-shrink: 0;
+            font-size: 22px;
+        }
+
+        /* Ending Section */
+        .ending-section {
+            text-align: center;
+            padding: 50px 30px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            margin: 50px 0;
+        }
+
+        .ending-title {
+            font-family: 'ZCOOL KuaiLe', 'Noto Sans SC', cursive;
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .ending-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .phone-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4e9 100%);
+            color: var(--primary-dark);
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 28px;
+            box-shadow: var(--shadow-medium);
+            border: 2px solid var(--primary-light);
+        }
+
+        .phone-icon {
+            font-size: 22px;
         }
 
         /* Footer */
         .footer {
-            background: var(--white);
-            padding: 40px 24px;
             text-align: center;
-            border-radius: var(--radius) var(--radius) 0 0;
-            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.05);
-            margin-top: 40px;
-        }
-
-        .footer-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 15px;
-            color: var(--text-medium);
-            margin-bottom: 8px;
-        }
-
-        .contact {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary-peach) 0%, var(--primary-rose) 100%);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 24px;
-            box-shadow: 0 8px 24px rgba(244, 194, 194, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(244, 194, 194, 0.4);
+            padding: 40px 20px 30px;
         }
 
         .footer-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 32px;
-            font-size: 28px;
-            opacity: 0.6;
+            gap: 28px;
+            margin-bottom: 20px;
         }
 
         .footer-icon {
-            animation: float 4s ease-in-out infinite;
+            font-size: 28px;
+            opacity: 0.5;
         }
 
-        .footer-icon:nth-child(2) { animation-delay: 0.3s; }
-        .footer-icon:nth-child(3) { animation-delay: 0.6s; }
-        .footer-icon:nth-child(4) { animation-delay: 0.9s; }
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
 
         /* Responsive */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .header {
-                padding: 24px 0;
-            }
-
+        @media (max-width: 768px) {
             .main-title {
-                font-size: 28px;
+                font-size: 36px;
+                letter-spacing: 2px;
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+
+            .title-card {
+                padding: 24px 36px;
+            }
+
+            .title-card::before,
+            .title-card::after {
+                font-size: 22px;
+            }
+
+            .title-card::before { left: -14px; }
+            .title-card::after { right: -14px; }
+
+            .header-icons {
+                gap: 14px;
+                flex-wrap: wrap;
             }
 
             .header-icon {
-                width: 48px;
-                height: 48px;
+                width: 54px;
+                height: 54px;
                 font-size: 24px;
             }
 
-            .intro-card {
-                padding: 24px 16px;
+            .intro-section {
+                padding: 32px 24px;
             }
 
             .category-header {
-                padding: 20px 16px;
+                padding: 22px 24px;
+                gap: 14px;
             }
 
-            .items-list {
-                padding: 16px;
+            .category-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 26px;
             }
 
-            .item {
-                padding: 16px;
+            .category-title {
+                font-size: 20px;
             }
 
-            .tips-card {
-                padding: 32px 16px;
+            .items-grid {
+                padding: 20px;
+                grid-template-columns: 1fr;
+            }
+
+            .tips-section {
+                padding: 36px 24px;
             }
 
             .tip-item {
-                padding: 16px;
+                padding: 16px 20px;
                 font-size: 14px;
             }
 
-            .footer {
-                padding: 32px 16px;
+            .ending-section {
+                padding: 40px 24px;
             }
 
-            .contact {
-                padding: 14px 24px;
+            .ending-title {
+                font-size: 22px;
+            }
+
+            .phone-box {
+                padding: 14px 28px;
                 font-size: 16px;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-            }
-
-            .header, .footer {
-                box-shadow: none;
-            }
-
-            .item {
-                break-inside: avoid;
+                flex-direction: column;
+                gap: 6px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="hospital-badge">
-                成都中医药大学附属医院 · 产科
+    <div class="container">
+        <!-- Top Badge -->
+        <div class="top-badge">
+            <div class="badge-wrapper">
+                <span class="badge-icon">🏥</span>
+                <span class="badge-text">成都中医药大学附属医院 · 产科</span>
+                <span class="badge-icon">🏥</span>
             </div>
-            <h1 class="main-title">待产包清单</h1>
-            <p class="subtitle">入院待产用物准备指南</p>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="title-card">
+                <h1 class="main-title">待产包，早准备！</h1>
+                <p class="subtitle">入院待产用物准备</p>
+            </div>
             <div class="header-icons">
                 <div class="header-icon">🍼</div>
                 <div class="header-icon">👶</div>
                 <div class="header-icon">🧸</div>
+                <div class="header-icon">🎀</div>
                 <div class="header-icon">💖</div>
             </div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro-section">
+            <div class="intro-icon">⏰</div>
+            <p class="intro-text">
+                随着预产期一天天的临近，孕妈们总会问到医生同样的一个问题：住院生娃的时候到底要带什么东西？或者待产包里要准备什么？
+            </p>
+            <p class="intro-text">
+                说实话，这个问题，就像出差准备行李一样，边思考边整理，真的不是一两句话能概括的。我们特别整理了一个清单以供各位孕妈妈参考。
+            </p>
+            <p class="intro-text">
+                考虑到产科的特殊性，孕妈妈随时有可能突发状况来医院，所以建议孕妈们在孕<span class="highlight-box">30周左右</span>就可以开始准备待产包啦！一旦出现紧急情况，拉上包，来一场说走就走的"旅行"。（即使自己不回家，其他人也能代劳哦！）
+            </p>
+        </section>
+
+        <!-- Mom Items -->
+        <div class="category-section">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🐤</div>
+                    <div class="category-info">
+                        <h2 class="category-title">妈妈用品</h2>
+                        <p class="category-count">共计 <span>13</span> 类</p>
+                    </div>
+                </div>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">开襟外衣</span>
+                            <span class="item-quantity">2套</span>
+                        </div>
+                        <p class="item-desc">天气热时出汗多，要准备棉质、轻薄透气的睡衣；较凉时要准备保暖、开襟外套，方便穿着避免着凉。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">一次性马桶垫</span>
+                            <span class="item-quantity">若干</span>
+                        </div>
+                        <p class="item-desc">医院每个房间都有独立卫生间，设有马桶，自带马桶垫更干净卫生。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">内裤</span>
+                            <span class="item-quantity">6条</span>
+                        </div>
+                        <p class="item-desc">产后恶露多，需要随时更换，保持外阴清洁卫生。不一定要买新的，但最好多带几条。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">产妇护理垫</span>
+                            <span class="item-quantity">3包</span>
+                        </div>
+                        <p class="item-desc">用来隔离恶露，保持床单干净</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">束腹带</span>
+                            <span class="item-quantity">1条</span>
+                        </div>
+                        <p class="item-desc">束腹带分顺产和剖腹产专用</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">胎监带</span>
+                            <span class="item-quantity">2条</span>
+                        </div>
+                        <p class="item-desc">入院后胎心监护使用</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">拖鞋</span>
+                            <span class="item-quantity">1双</span>
+                        </div>
+                        <p class="item-desc">选择鞋底柔软、防滑的拖鞋</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">哺乳文胸</span>
+                            <span class="item-quantity">2件</span>
+                        </div>
+                        <p class="item-desc">可以选择前开式或吊带开口式的，方便给宝宝喂奶，准备够住院时替换即可</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">产妇卫生巾</span>
+                            <span class="item-quantity">25片</span>
+                        </div>
+                        <p class="item-desc">产后私处易受细菌感染或有湿疹，一定要保持干爽清洁，选用安全正规的产妇卫生巾。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">洗漱用品</span>
+                            <span class="item-quantity">1套</span>
+                        </div>
+                        <p class="item-desc">牙刷、梳子、脸盆、洗衣皂等；毛巾4张，分别用于擦洗身体不同部位</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">餐具</span>
+                            <span class="item-quantity">1套</span>
+                        </div>
+                        <p class="item-desc">微波炉专用餐具；水杯，带弯头的吸管，产后不能起身时，可用吸管喝水、喝汤，很方便</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">妈妈食品</span>
+                            <span class="item-quantity">若干</span>
+                        </div>
+                        <p class="item-desc">可提前准备巧克力等食品，巧克力可用于生产时增加体力。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">出院衣服</span>
+                            <span class="item-quantity">1套</span>
+                        </div>
+                        <p class="item-desc">出院的时候可不是大肚子啦，所以应该准备一套适合出院当天穿的服装。</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
 
-    <main class="container">
-        <section class="intro">
-            <div class="intro-card">
-                <div class="intro-icon">⏰</div>
-                <p class="intro-text">
-                    随着预产期临近，孕妈们总会问：住院生娃要带什么东西？
-                </p>
-                <p class="intro-text">
-                    我们特别整理了这份清单，建议孕<span class="highlight">30周左右</span>开始准备，随时迎接宝宝的到来。
-                </p>
+        <!-- Baby Items -->
+        <div class="category-section">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🍼</div>
+                    <div class="category-info">
+                        <h2 class="category-title">宝宝用品</h2>
+                        <p class="category-count">共计 <span>6</span> 类</p>
+                    </div>
+                </div>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">新生儿衣服</span>
+                            <span class="item-quantity">4套</span>
+                        </div>
+                        <p class="item-desc">纯棉衣物4套，根据季节来选择衣服厚度；一般不用频繁更换，够住院时替换即可。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">小水盆</span>
+                            <span class="item-quantity">2个</span>
+                        </div>
+                        <p class="item-desc">分别用于清洗宝宝身体不同部位</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">小毛巾</span>
+                            <span class="item-quantity">4张</span>
+                        </div>
+                        <p class="item-desc">分别用于擦洗身体不同部位</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">湿巾纸</span>
+                            <span class="item-quantity">2包</span>
+                        </div>
+                        <p class="item-desc">用于擦拭宝宝臀部</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">抽纸</span>
+                            <span class="item-quantity">2包</span>
+                        </div>
+                        <p class="item-desc">日常使用</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">纸尿裤</span>
+                            <span class="item-quantity">30片</span>
+                        </div>
+                        <p class="item-desc">新生宝宝一天大概用8-10片NB码纸尿裤，所以先准备3天的量；如果纸尿裤好用的话，再继续买。</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 妈妈用品 -->
-        <section class="category">
-            <div class="category-header">
-                <div class="category-icon">🤱</div>
-                <div>
-                    <h2 class="category-title">妈妈用品</h2>
-                    <p class="category-count">共计 <span>13</span> 类物品</p>
+        <!-- Hospital Provided -->
+        <div class="category-section">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🏥</div>
+                    <div class="category-info">
+                        <h2 class="category-title">医院提供</h2>
+                        <p class="category-count">共计 <span>3</span> 类</p>
+                    </div>
+                </div>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">微波炉</span>
+                            <span class="item-quantity">公用</span>
+                        </div>
+                        <p class="item-desc">公用（单人间单独配备）</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">冰箱</span>
+                            <span class="item-quantity">公用</span>
+                        </div>
+                        <p class="item-desc">公用（单人间单独配备）</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">暖水壶</span>
+                            <span class="item-quantity">1个</span>
+                        </div>
+                        <p class="item-desc">护士站领取</p>
+                    </div>
                 </div>
             </div>
-            <div class="items-list">
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">开襟外衣</span>
-                        <span class="item-quantity">2套</span>
-                    </div>
-                    <p class="item-desc">棉质、轻薄透气的睡衣，方便穿着避免着凉</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">一次性马桶垫</span>
-                        <span class="item-quantity">若干</span>
-                    </div>
-                    <p class="item-desc">医院每个房间都有独立卫生间，自带马桶垫更干净卫生</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">内裤</span>
-                        <span class="item-quantity">6条</span>
-                    </div>
-                    <p class="item-desc">产后恶露多，需要随时更换，保持清洁卫生</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">产妇护理垫</span>
-                        <span class="item-quantity">3包</span>
-                    </div>
-                    <p class="item-desc">用来隔离恶露，保持床单干净</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">束腹带</span>
-                        <span class="item-quantity">1条</span>
-                    </div>
-                    <p class="item-desc">束腹带分顺产和剖腹产专用</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">胎监带</span>
-                        <span class="item-quantity">2条</span>
-                    </div>
-                    <p class="item-desc">入院后胎心监护使用</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">拖鞋</span>
-                        <span class="item-quantity">1双</span>
-                    </div>
-                    <p class="item-desc">选择鞋底柔软、防滑的拖鞋</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">哺乳文胸</span>
-                        <span class="item-quantity">2件</span>
-                    </div>
-                    <p class="item-desc">前开式或吊带开口式，方便给宝宝喂奶</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">产妇卫生巾</span>
-                        <span class="item-quantity">25片</span>
-                    </div>
-                    <p class="item-desc">选用安全正规的产妇卫生巾，保持干爽清洁</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">洗漱用品</span>
-                        <span class="item-quantity">1套</span>
-                    </div>
-                    <p class="item-desc">牙刷、梳子、脸盆、洗衣皂等；毛巾4张</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">餐具</span>
-                        <span class="item-quantity">1套</span>
-                    </div>
-                    <p class="item-desc">微波炉专用餐具；水杯，弯头吸管</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">妈妈食品</span>
-                        <span class="item-quantity">若干</span>
-                    </div>
-                    <p class="item-desc">巧克力等食品，用于生产时增加体力</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">出院衣服</span>
-                        <span class="item-quantity">1套</span>
-                    </div>
-                    <p class="item-desc">准备一套适合出院当天穿的服装</p>
-                </div>
-            </div>
-        </section>
+        </div>
 
-        <!-- 宝宝用品 -->
-        <section class="category">
-            <div class="category-header">
-                <div class="category-icon">🍼</div>
-                <div>
-                    <h2 class="category-title">宝宝用品</h2>
-                    <p class="category-count">共计 <span>6</span> 类物品</p>
+        <!-- Other Items -->
+        <div class="category-section">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">📋</div>
+                    <div class="category-info">
+                        <h2 class="category-title">其它用品</h2>
+                        <p class="category-count">共计 <span>4</span> 类</p>
+                    </div>
+                </div>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">入院证件</span>
+                            <span class="item-quantity">1套</span>
+                        </div>
+                        <p class="item-desc">孕妇本人身份证原件及复印件、医保卡原件（或电子医保卡）及复印件。</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">手机和充电器</span>
+                            <span class="item-quantity">1台</span>
+                        </div>
+                        <p class="item-desc">有情况可以随时和家人联系，另外也需要看时间来记录阵痛、宫缩时间</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">纸笔</span>
+                            <span class="item-quantity">1套</span>
+                        </div>
+                        <p class="item-desc">可以随时记录阵痛时间及宝宝出生时间、每次大小便时间等，以便于更加科学合理地护理宝宝</p>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-header">
+                            <span class="item-name">银行卡和现金</span>
+                            <span class="item-quantity">足量</span>
+                        </div>
+                        <p class="item-desc">两者都需要准备，一定要带好现金，买点小东西的时候也方便。医院支付方式有现金、微信、支付宝和刷银行卡多种方式</p>
+                    </div>
                 </div>
             </div>
-            <div class="items-list">
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">新生儿衣服</span>
-                        <span class="item-quantity">4套</span>
-                    </div>
-                    <p class="item-desc">纯棉衣物，根据季节选择厚度</p>
+        </div>
+
+        <!-- Tips -->
+        <section class="tips-section">
+            <h2 class="tips-title">还有，把最重要的三样东西放在最后：</h2>
+            <div class="tips-list">
+                <div class="tip-item">
+                    <span class="tip-icon">💗</span>
+                    <span>迎接新生命的从容不迫的好心情</span>
                 </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">小水盆</span>
-                        <span class="item-quantity">2个</span>
-                    </div>
-                    <p class="item-desc">分别用于清洗宝宝身体不同部位</p>
+                <div class="tip-item">
+                    <span class="tip-icon">💕</span>
+                    <span>家人的支持与鼓励</span>
                 </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">小毛巾</span>
-                        <span class="item-quantity">4张</span>
-                    </div>
-                    <p class="item-desc">分别用于擦洗身体不同部位</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">湿巾纸</span>
-                        <span class="item-quantity">2包</span>
-                    </div>
-                    <p class="item-desc">用于擦拭宝宝臀部</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">抽纸</span>
-                        <span class="item-quantity">2包</span>
-                    </div>
-                    <p class="item-desc">日常使用</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">纸尿裤</span>
-                        <span class="item-quantity">30片</span>
-                    </div>
-                    <p class="item-desc">NB码纸尿裤，新生宝宝一天大概用8-10片</p>
+                <div class="tip-item">
+                    <span class="tip-icon">💪</span>
+                    <span>应付分娩过程的信心和勇气</span>
                 </div>
             </div>
         </section>
 
-        <!-- 医院提供 -->
-        <section class="category">
-            <div class="category-header">
-                <div class="category-icon">🏥</div>
-                <div>
-                    <h2 class="category-title">医院提供</h2>
-                    <p class="category-count">共计 <span>3</span> 类物品</p>
-                </div>
-            </div>
-            <div class="items-list">
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">微波炉</span>
-                        <span class="item-quantity">公用</span>
-                    </div>
-                    <p class="item-desc">公用（单人间单独配备）</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">冰箱</span>
-                        <span class="item-quantity">公用</span>
-                    </div>
-                    <p class="item-desc">公用（单人间单独配备）</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">暖水壶</span>
-                        <span class="item-quantity">1个</span>
-                    </div>
-                    <p class="item-desc">护士站领取</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 其它用品 -->
-        <section class="category">
-            <div class="category-header">
-                <div class="category-icon">📋</div>
-                <div>
-                    <h2 class="category-title">其它用品</h2>
-                    <p class="category-count">共计 <span>4</span> 类物品</p>
-                </div>
-            </div>
-            <div class="items-list">
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">入院证件</span>
-                        <span class="item-quantity">1套</span>
-                    </div>
-                    <p class="item-desc">身份证、医保卡等原件及复印件</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">手机和充电器</span>
-                        <span class="item-quantity">1台</span>
-                    </div>
-                    <p class="item-desc">随时联系家人，记录阵痛、宫缩时间</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">纸笔</span>
-                        <span class="item-quantity">1套</span>
-                    </div>
-                    <p class="item-desc">记录阵痛时间、宝宝出生时间等</p>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-name">银行卡和现金</span>
-                        <span class="item-quantity">足量</span>
-                    </div>
-                    <p class="item-desc">医院支持现金、微信、支付宝和银行卡支付</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 温馨提示 -->
-        <section class="tips">
-            <div class="tips-card">
-                <h2 class="tips-title">最重要的三样东西</h2>
-                <div class="tips-list">
-                    <div class="tip-item">
-                        <span class="tip-icon">💗</span>
-                        <span>迎接新生命的从容不迫的好心情</span>
-                    </div>
-                    <div class="tip-item">
-                        <span class="tip-icon">💕</span>
-                        <span>家人的支持与鼓励</span>
-                    </div>
-                    <div class="tip-item">
-                        <span class="tip-icon">💪</span>
-                        <span>应付分娩过程的信心和勇气</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <h2 class="footer-title">各位孕妈妈务必记得带上哟！</h2>
-            <p class="footer-text">都准备好了吗？</p>
-            <p class="footer-text">那就来吧，我们在这里等你们！</p>
-            <div class="contact">
-                <span>📞</span>
+        <!-- Ending -->
+        <section class="ending-section">
+            <h2 class="ending-title">各位孕妈妈务必记得带上哟！！！</h2>
+            <p class="ending-text">都准备好了吗？</p>
+            <p class="ending-text">那就来吧，我们在这里等你们！</p>
+            <p class="ending-text">如有任何疑问，请咨询：</p>
+            <div class="phone-box">
+                <span class="phone-icon">📞</span>
                 <span>(028) 8779 5419</span>
             </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
             <div class="footer-icons">
                 <span class="footer-icon">🌙</span>
                 <span class="footer-icon">👼</span>
                 <span class="footer-icon">🧸</span>
                 <span class="footer-icon">💖</span>
+                <span class="footer-icon">⭐</span>
             </div>
-            <p class="footer-text" style="margin-top: 24px; font-size: 13px;">
-                成都中医药大学附属医院产科 · 守护每一位准妈妈
-            </p>
-        </div>
-    </footer>
+            <p class="footer-text">成都中医药大学附属医院产科 · 守护每一位准妈妈</p>
+        </footer>
+    </div>
 </body>
 </html>
